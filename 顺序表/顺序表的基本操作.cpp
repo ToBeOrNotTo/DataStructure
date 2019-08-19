@@ -12,7 +12,7 @@ using namespace std;
 
 #define OVERFLOW -2
 
-typedef int Status;
+typedef int Status; //åˆ«å
 
 typedef int ElemType;
 
@@ -20,19 +20,19 @@ typedef int ElemType;
 
 #define LISTINCREMENT 10
 
-typedef struct { //½á¹¹Ìå
+typedef struct { //ç»“æ„ä½“
 
-	ElemType *elem;
+	ElemType *elem;//çº¿æ€§è¡¨å ç”¨çš„æ•°ç»„ç©ºé—´ï¼Œå‚¨å­˜ç©ºé—´åŸºå€
 
-	int length;
+	int length;//è¡¨é•¿åº¦
 
-	int listsize;
+	int listsize;//å½“å‰åˆ†é…çš„å­˜å‚¨å®¹é‡
 
 }SqList;
 
 SqList Lx;
 
-Status InitList_Sq(SqList &L) //·ÖÅä¿Õ¼ä
+Status InitList_Sq(SqList &L) //åˆ†é…ç©ºé—´
 
 {
 	L.elem = new ElemType[LIST_INIT_SIZE];
@@ -47,7 +47,7 @@ Status InitList_Sq(SqList &L) //·ÖÅä¿Õ¼ä
 
 }
 
-Status ListInsert(SqList &L, int i, ElemType e) //Ôö¼ÓĞÂÔªËØ
+Status ListInsert(SqList &L, int i, ElemType e) //å¢åŠ æ–°å…ƒç´ 
 
 {
 	int *q, *p; ElemType *newbase;
@@ -81,10 +81,10 @@ Status ListInsert(SqList &L, int i, ElemType e) //Ôö¼ÓĞÂÔªËØ
 
 }
 
-Status Listlength(SqList L) //³¤¶È
+Status Listlength(SqList L) //é•¿åº¦
 
 {
-	int *p = L.elem; //ÅĞ¶ÏÏßĞÎ±íÊÇ·ñ´æÔÚ
+	int *p = L.elem; //åˆ¤æ–­çº¿å½¢è¡¨æ˜¯å¦å­˜åœ¨
 
 	while (p)
 
@@ -94,12 +94,12 @@ Status Listlength(SqList L) //³¤¶È
 
 }
 
-void show(SqList L, int i) //ÏÔÊ¾
+void show(SqList L, int i) //æ˜¾ç¤º
 
 {
 	int j; ElemType k;
 
-	cout << "Ë³Ğò±íÏÔÊ¾ÈçÏÂ:" << endl;
+	cout << "é¡ºåºè¡¨æ˜¾ç¤ºå¦‚ä¸‹:" << endl;
 
 	for (j = 0; j<i - 1; j++)
 
@@ -119,7 +119,7 @@ void show(SqList L, int i) //ÏÔÊ¾
 
 }
 
-void create(SqList &L, int n) //ÊäÈëÔªËØ
+void create(SqList &L, int n) //è¾“å…¥å…ƒç´ 
 
 {
 	int e;
@@ -136,7 +136,7 @@ void create(SqList &L, int n) //ÊäÈëÔªËØ
 
 }
 
-Status ListDelete_Sq(SqList &L, int i, ElemType &e) //É¾³ı
+Status ListDelete_Sq(SqList &L, int i, ElemType &e) //åˆ é™¤
 
 {
 	ElemType *p, *q;
@@ -157,7 +157,7 @@ Status ListDelete_Sq(SqList &L, int i, ElemType &e) //É¾³ı
 
 }
 
-Status Listxiugei(SqList &L, int i, ElemType &e) //ĞŞ¸Ä
+Status Listxiugei(SqList &L, int i, ElemType &e) //ä¿®æ”¹
 
 {
 	if (i<1 || i>L.length)
@@ -174,18 +174,18 @@ Status Listxiugei(SqList &L, int i, ElemType &e) //ĞŞ¸Ä
 
 }
 
-void shuru(SqList &L1) //Ë³Ğò±íµÄ´´½¨
+void shuru(SqList &L1) //é¡ºåºè¡¨çš„åˆ›å»º
 
 {
 	int a;
 
 	InitList_Sq(L1);
 
-	cout << "ÇëÊäÈëË³Ğò±íµÄ³¤¶È£º";
+	cout << "è¯·è¾“å…¥é¡ºåºè¡¨çš„é•¿åº¦ï¼š";
 
 	cin >> a;
 
-	cout << "ÇëÊäÈëË³Ğò±íµÄÔªËØ(¹²" << a << "¸ö)" << endl;
+	cout << "è¯·è¾“å…¥é¡ºåºè¡¨çš„å…ƒç´ (å…±" << a << "ä¸ª)" << endl;
 
 	create(L1, a);
 
@@ -193,40 +193,40 @@ void shuru(SqList &L1) //Ë³Ğò±íµÄ´´½¨
 
 }
 
-void zengjia(SqList &L1) //Ôö¼ÓÔªËØµ½Ë³Ğò±íÀï
+void zengjia(SqList &L1) //å¢åŠ å…ƒç´ åˆ°é¡ºåºè¡¨é‡Œ
 
 {
 	int a; int j; ElemType e1;
 
 	a = L1.length;
 
-	cout << "ÇëÑ¡ÔñËùÒªÔö¼ÓÔªËØµÄÎ»ÖÃ:";
+	cout << "è¯·é€‰æ‹©æ‰€è¦å¢åŠ å…ƒç´ çš„ä½ç½®:";
 
 	cin >> j;
 
 	while (j<0 || j>Listlength(L1))
 
 	{
-		cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+		cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 
-		cout << "ÇëÑ¡ÔñËùÒªÔö¼ÓÔªËØµÄÎ»ÖÃ:";
+		cout << "è¯·é€‰æ‹©æ‰€è¦å¢åŠ å…ƒç´ çš„ä½ç½®:";
 
 		cin >> j;
 	}
 
-	cout << "ÒªÔö¼ÓµÄÔªËØ:";
+	cout << "è¦å¢åŠ çš„å…ƒç´ :";
 
 	cin >> e1;
 
 	ListInsert(L1, j, e1);
 
-	cout << "ĞŞ¸ÄºóµÄË³Ğò±íÊı¾İ:" << endl;
+	cout << "ä¿®æ”¹åçš„é¡ºåºè¡¨æ•°æ®:" << endl;
 
 	show(L1, a + 1);
 
 }
 
-void shanchu(SqList &L1) //É¾³ıË³Ğò±íÀïµÄÔªËØ
+void shanchu(SqList &L1) //åˆ é™¤é¡ºåºè¡¨é‡Œçš„å…ƒç´ 
 
 {
 	int a;
@@ -235,29 +235,29 @@ void shanchu(SqList &L1) //É¾³ıË³Ğò±íÀïµÄÔªËØ
 
 	a = L1.length;
 
-	cout << "ÇëÑ¡ÔñËùÒªÉ¾³ıÔªËØµÄÎ»ÖÃ:";
+	cout << "è¯·é€‰æ‹©æ‰€è¦åˆ é™¤å…ƒç´ çš„ä½ç½®:";
 
 	cin >> j;
 
 	while (j<0 || j>Listlength(L1))
 
 	{
-		cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+		cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 
-		cout << "ÇëÑ¡ÔñËùÒªÉ¾³ıÔªËØµÄÎ»ÖÃ:";
+		cout << "è¯·é€‰æ‹©æ‰€è¦åˆ é™¤å…ƒç´ çš„ä½ç½®:";
 
 			  cin >> j;
 	}
 
 	ListDelete_Sq(L1, j, e1);
 
-	cout << "ĞŞ¸ÄºóµÄË³Ğò±íÊı¾İ:" << endl;
+	cout << "ä¿®æ”¹åçš„é¡ºåºè¡¨æ•°æ®:" << endl;
 
 	show(L1, a - 1);
 
 }
 
-void xiugai(SqList &L1) //ĞŞ¸ÄµÚi¸öÎ»ÖÃµÄÔªËØ
+void xiugai(SqList &L1) //ä¿®æ”¹ç¬¬iä¸ªä½ç½®çš„å…ƒç´ 
 
 {
 	int a;
@@ -266,33 +266,33 @@ void xiugai(SqList &L1) //ĞŞ¸ÄµÚi¸öÎ»ÖÃµÄÔªËØ
 
 	a = L1.length;
 
-	cout << "ÇëÑ¡ÔñËùÒªĞŞ¸ÄÔªËØµÄÎ»ÖÃ:";
+	cout << "è¯·é€‰æ‹©æ‰€è¦ä¿®æ”¹å…ƒç´ çš„ä½ç½®:";
 
 	cin >> j;
 
 	while (j<0 || j>Listlength(L1))
 
 	{
-		cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÊäÈë" << endl;
+		cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥" << endl;
 
-		cout << "ÇëÑ¡ÔñËùÒªĞŞ¸ÄÔªËØµÄÎ»ÖÃ:";
+		cout << "è¯·é€‰æ‹©æ‰€è¦ä¿®æ”¹å…ƒç´ çš„ä½ç½®:";
 
 		cin >> j;
 	}
 
-	cout << "ÒªĞŞ¸Ä³ÉµÄÔªËØ:";
+	cout << "è¦ä¿®æ”¹æˆçš„å…ƒç´ :";
 
 	cin >> e1;
 
 	Listxiugei(L1, j, e1);
 
-	cout << "ĞŞ¸ÄºóµÄË³Ğò±íÊı¾İ:" << endl;
+	cout << "ä¿®æ”¹åçš„é¡ºåºè¡¨æ•°æ®:" << endl;
 
 	show(L1, a);
 
 }
 
-void main() //Ö÷²Ëµ¥
+void main() //ä¸»èœå•
 
 {
 	int choice;
@@ -300,21 +300,21 @@ void main() //Ö÷²Ëµ¥
 	for (;;)
 
 	{
-		cout << " Ë³Ğò±íµÄ»ù±¾²Ù×÷" << endl;
+		cout << " é¡ºåºè¡¨çš„åŸºæœ¬æ“ä½œ" << endl;
 
-		cout << " 1.Ë³Ğò±íµÄ´´½¨" << endl;
+		cout << " 1.é¡ºåºè¡¨çš„åˆ›å»º" << endl;
 
-		cout << " 2.Ë³Ğò±íµÄ³¤¶È" << endl;
+		cout << " 2.é¡ºåºè¡¨çš„é•¿åº¦" << endl;
 
-		cout << " 3.Ôö¼ÓÔªËØµ½Ë³Ğò±íÀï" << endl;
+		cout << " 3.å¢åŠ å…ƒç´ åˆ°é¡ºåºè¡¨é‡Œ" << endl;
 
-		cout << " 4.É¾³ıË³Ğò±íÀïµÄÔªËØ" << endl;
+		cout << " 4.åˆ é™¤é¡ºåºè¡¨é‡Œçš„å…ƒç´ " << endl;
 
-		cout << " 5.ĞŞ¸ÄµÚi¸öÎ»ÖÃµÄÔªËØ" << endl;
+		cout << " 5.ä¿®æ”¹ç¬¬iä¸ªä½ç½®çš„å…ƒç´ " << endl;
 
-		cout << " 6.ÍË³öÏµÍ³" << endl;
+		cout << " 6.é€€å‡ºç³»ç»Ÿ" << endl;
 
-		cout << "ÇëÑ¡Ôñ£º";
+		cout << "è¯·é€‰æ‹©ï¼š";
 
 		cin >> choice;
 
@@ -323,7 +323,7 @@ void main() //Ö÷²Ëµ¥
 		{
 		case 1: shuru(Lx); break;
 
-		case 2: cout << "Ë³Ğò±íµÄ³¤¶È:" << Listlength(Lx) << endl; break;
+		case 2: cout << "é¡ºåºè¡¨çš„é•¿åº¦:" << Listlength(Lx) << endl; break;
 
 		case 3: zengjia(Lx); break;
 
@@ -331,9 +331,9 @@ void main() //Ö÷²Ëµ¥
 
 		case 5: xiugai(Lx); break;
 
-		case 6: cout << "ÍË³öÏµÍ³!" << endl; exit(0); break;
+		case 6: cout << "é€€å‡ºç³»ç»Ÿ!" << endl; exit(0); break;
 
-		default: cout << "ÊäÈëÓĞÎó£¬ÇëÖØĞÂÑ¡Ôñ" << endl; break;
+		default: cout << "è¾“å…¥æœ‰è¯¯ï¼Œè¯·é‡æ–°é€‰æ‹©" << endl; break;
 		}
 
 	}
